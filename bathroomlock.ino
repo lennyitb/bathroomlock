@@ -19,6 +19,10 @@
 #define D6_pin         6
 #define D7_pin         7
 
+//Commands for locking and unlocking servo
+#define lock   servo.write(90)
+#define unlock servo.write(65)
+
 //Pin variables, preprocesor directive for speed
 
 //Button
@@ -136,7 +140,7 @@ pcloop:
   while (!digitalRead(cac)) {}
   dc = 0; pc++;
   while (digitalRead(cac))  {
-    delay(1)
+    delay(1);
     dc++;
     if (dc > 100 || pc == 3) {
       goto end;
